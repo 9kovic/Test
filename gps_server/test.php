@@ -112,5 +112,8 @@ while (true) {
     //关闭 socket
     socket_close($connection);
     printf("Closed the socket\n");
+    printf("Closed the socket\n");
+    printf("Closed the socket\n");
+    printf("Closed the socket\n");
 }
 ?>
