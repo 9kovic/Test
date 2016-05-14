@@ -18,6 +18,7 @@ $tcp_worker->onMessage = function($connection, $data)
     //$connection->send('hello ' . $data);
     echo "kovic";
     echo "kovic";
+    echo "kovic";
 };
 
 // 运行worker
