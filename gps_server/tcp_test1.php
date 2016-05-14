@@ -20,4 +20,5 @@ $tcp_worker->onMessage = function($connection, $data)
 };
 
 // 运行worker
+//Worker::runAll();
 Worker::runAll();
