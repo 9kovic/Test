@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use common\models\Cat;
 use common\models\Person;
 use Yii;
 use yii\web\Controller;
@@ -20,7 +21,7 @@ class SiteController extends Controller {
             'access' => [
                 'class' => AccessControl::className(), 'rules' => [
                     ['actions' => ['login', 'error','test'], 'allow' => true,],
-                    ['actions' => ['logout', 'index','test'], 'allow' => true, 'roles' => ['@'],],
+                    ['actions' => ['logout', 'index','test','test1'], 'allow' => true, 'roles' => ['@'],],
                 ],
             ], 'verbs' => ['class' => VerbFilter::className(), 'actions' => ['logout' => ['post'],],],
         ];
@@ -59,18 +60,11 @@ class SiteController extends Controller {
 
 
     public function actionTest() {
-        echo "事件处理开始";
-        $person = new Person();
 
-        $this->on('SayHello', [$person,'say_hello'],'oh my god');
-
-        //$this->trigger('SayHello');
-
-        echo "事件处理结束";
+        $model = new Cat();
+        $model->haveCat('Bruce');
+        $model->trigger(Cat::EVENT_NEW_CAT);
     }
 
-    public function actionTest1(){
-
-    }
 
 }
