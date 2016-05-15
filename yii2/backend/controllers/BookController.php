@@ -37,14 +37,20 @@ class BookController extends Controller
     {
         $searchModel = new SearchBook();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            //传递当前时间
+            'time' => date("Y-m-d H:i:s"),
         ]);
     }
+
+
+    public function actionGetBooks($num=1){
+        $models = Book::find()->limit($num)->all();
+        return $this->render('pbooks',['models'=>$models]);
+    }
+
 
 
 
@@ -125,4 +131,8 @@ class BookController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+
+
 }
