@@ -38,11 +38,15 @@ class BookController extends Controller
         $searchModel = new SearchBook();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
+
+
 
     /**
      * Displays a single Book model.

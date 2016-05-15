@@ -48,7 +48,14 @@ class SearchBook extends Book
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' =>['pageSize'=>5],
+            'sort' => [
+                'defaultOrder' => [
+                    'book_price' =>SORT_DESC,
+                ]
+            ]
         ]);
+
 
         $this->load($params);
 
@@ -65,7 +72,6 @@ class SearchBook extends Book
         ]);
 
         $query->andFilterWhere(['like', 'book_name', $this->book_name]);
-
         return $dataProvider;
     }
 }
